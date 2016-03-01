@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: paleo_pal_production
-  username: paleo_pal
-  password: <%= ENV['PALEO_PAL_DATABASE_PASSWORD'] %>

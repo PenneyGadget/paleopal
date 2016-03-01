@@ -18,5 +18,8 @@
 # Ignore VCR cassettes
 /spec/cassettes
 
-#Ignore simplecov
+# Ignore simplecov
 /coverage
+
+# Ignore public/assets
+/public/assets
