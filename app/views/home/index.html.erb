@@ -11,14 +11,7 @@
         <%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-lg btn-default btn-home login-btn" %>
       <% end %>
     </div>
-    <div class="tagline rounded">
-      Welcome! <br>
-      PaleoPal is your new BFF, here to help with all your <br>
-      food diary needs as you transition to a healthier and <br>
-      more vibrant YOU! Log your meals, write about your symptoms, <br>
-      see your nutrient intake for every meal and every day... <br>
-      Let the healing journey begin!
-    </div>
+    <%= render partial: "partials/tagline" %>
   </div><!-- End of upper section with image -->
 
   <div class="testimonials">
