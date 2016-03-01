@@ -19,4 +19,7 @@ RSpec.feature "Landing page", :type => :feature do
     # expect(page).to have_css(".screenshots")
     # expect(page).to have_button("Login with Facebook")
   end
+
+  # scenario "User logs out and is redirected to root path" do
+  # end
 end
