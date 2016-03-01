@@ -11,3 +11,12 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore application configuration
+/config/application.yml
+
+# Ignore VCR cassettes
+/spec/cassettes
+
+#Ignore simplecov
+/coverage

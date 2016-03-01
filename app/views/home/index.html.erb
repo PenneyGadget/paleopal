@@ -1,0 +1,20 @@
+<div>
+  <div class="grayscale">
+    <img src="/assets/veggies.jpg" class="veggie-pic"/>
+    <p id="title-main">PaleoPal</p>
+    <div class="user-info">
+      <% if current_user %>
+        <%= image_tag current_user.image_url, class: "user-image" %>
+        Signed in as <strong><%= current_user.name %></strong>!
+        <%= link_to "Logout", logout_path, method: :delete, class: "logout-btn" %>
+      <% else %>
+        <%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-lg btn-default btn-home login-btn" %>
+      <% end %>
+    </div>
+    <%= render partial: "partials/tagline" %>
+  </div><!-- End of upper section with image -->
+
+  <div class="testimonials">
+    <%= render partial: "partials/user_testimonials" %>
+  </div><!-- End of testimonial section -->
+</div>
