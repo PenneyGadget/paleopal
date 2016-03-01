@@ -7,7 +7,7 @@ RSpec.feature "Landing page", :type => :feature do
     expect(page).to have_text("PaleoPal")
     expect(page).to have_link("Login with Facebook")
     expect(page).to have_css("div.user-info")
-    # expect(page).to have_text("some info")
+    expect(page).to have_css("div.tagline")
   end
 
   # scenario "User scrolls down landing page" do

@@ -1,19 +1,26 @@
 <div>
-  <div>
-    <img src="/assets/veggies.jpg" class="veggie-pic grayscale"/>
+  <div class="grayscale">
+    <img src="/assets/veggies.jpg" class="veggie-pic"/>
     <p id="title-main">PaleoPal</p>
     <div class="user-info">
       <% if current_user %>
         <%= image_tag current_user.image_url, class: "user-image" %>
         Signed in as <strong><%= current_user.name %></strong>!
-        <%= link_to "Logout", logout_path, method: :delete, id: "logout-btn" %>
+        <%= link_to "Logout", logout_path, method: :delete, class: "logout-btn" %>
       <% else %>
-        <%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-lg btn-default btn-home", id: "login-btn" %>
+        <%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-lg btn-default btn-home login-btn" %>
       <% end %>
+    </div>
+    <div class="tagline rounded">
+      Welcome! <br>
+      PaleoPal is your new BFF, here to help with all your <br>
+      food diary needs as you transition to a healthier and <br>
+      more vibrant YOU! Log your meals, write about your symptoms, <br>
+      see your nutrient intake for every meal and every day... <br>
+      Let the healing journey begin!
     </div>
   </div><!-- End of upper section with image -->
 
   <div class="testimonials">
-
   </div><!-- End of testimonial section -->
 </div>
