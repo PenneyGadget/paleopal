@@ -1,20 +1,21 @@
 require "rails_helper"
 
-RSpec.feature "Widget management", :type => :feature do
-  scenario "User creates a new widget" do
-    visit "/widgets/new"
+RSpec.feature "Landing page", :type => :feature do
+  scenario "User visits root page" do
+    visit root_path
 
-    fill_in "Name", :with => "My Widget"
-    click_button "Create Widget"
-
-    expect(page).to have_text("Widget was successfully created.")
+    expect(page).to have_text("PaleoPal")
+    expect(page).to have_button("Login with Facebook")
+    # expect(page).to have_button("some info")
   end
-end
 
-# As a user
-# When I visit the root page
-# I see a black and white image
-# The words 'PaleoPal' fade in
-# And I see "Login with Facebook"
-# And I see a few lines of text about the site
-# And when I hover my mouse color fills in the photo
+  # scenario "User scrolls down landing page" do
+  #   visit root_path
+  #
+  #   expect(page).to have_css("#user-testimonials")
+  #   expect(page).to have_text("How it Works")
+  #   expect(page).to have_css("#how-it-works")
+  #   expect(page).to have_css(".screenshots")
+  #   expect(page).to have_button("Login with Facebook")
+  # end
+end

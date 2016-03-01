@@ -1,1 +1,24 @@
-<img src="/assets/veggies.jpg" class="veggie-pic grayscale"/>
+<div>
+  <div>
+    <img src="/assets/veggies.jpg" class="veggie-pic grayscale"/>
+    <p id="title-main">PaleoPal</p>
+
+
+
+    <div id="user_nav">
+      <% if current_user %>
+        Signed in as <strong><%= current_user.name %></strong>!
+        <%= link_to "Logout", logout_path, method: :delete, id: "sign_out" %>
+      <% else %>
+        <%= link_to "Sign in with Facebook", "/auth/facebook", class: "btn btn-lg btn-default btn-home", id: "sign_in" %>
+      <% end %>
+    </div>
+
+
+
+  </div><!-- End of upper section with image -->
+
+  <div class="testimonials">
+
+  </div><!-- End of testimonial section -->
+</div>

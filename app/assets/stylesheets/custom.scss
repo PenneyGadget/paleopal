@@ -1,6 +1,13 @@
+// Container
+
+.container {
+  position: relative;
+}
+
 // Landing page image
 
 .veggie-pic {
+  position: relative;
   max-width: 100%;
   height: auto;
 }
@@ -17,3 +24,19 @@
 }
 
 // Landing page title
+
+#title-main {
+  z-index: 100;
+  position: absolute;
+  color: white;
+  font-size: 8em;
+  right: 250px;
+  top: 300px;
+  font-family: 'Dawning of a New Day', cursive;
+}
+
+// Testimonial section
+
+.testimonials {
+
+}
