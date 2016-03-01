@@ -2,20 +2,15 @@
   <div>
     <img src="/assets/veggies.jpg" class="veggie-pic grayscale"/>
     <p id="title-main">PaleoPal</p>
-
-
-
-    <div id="user_nav">
+    <div class="user-info">
       <% if current_user %>
+        <%= image_tag current_user.image_url, class: "user-image" %>
         Signed in as <strong><%= current_user.name %></strong>!
-        <%= link_to "Logout", logout_path, method: :delete, id: "sign_out" %>
+        <%= link_to "Logout", logout_path, method: :delete, id: "logout-btn" %>
       <% else %>
-        <%= link_to "Sign in with Facebook", "/auth/facebook", class: "btn btn-lg btn-default btn-home", id: "sign_in" %>
+        <%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-lg btn-default btn-home", id: "login-btn" %>
       <% end %>
     </div>
-
-
-
   </div><!-- End of upper section with image -->
 
   <div class="testimonials">

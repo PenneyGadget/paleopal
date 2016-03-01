@@ -5,8 +5,9 @@ RSpec.feature "Landing page", :type => :feature do
     visit root_path
 
     expect(page).to have_text("PaleoPal")
-    expect(page).to have_button("Login with Facebook")
-    # expect(page).to have_button("some info")
+    expect(page).to have_link("Login with Facebook")
+    expect(page).to have_css("div.user-info")
+    # expect(page).to have_text("some info")
   end
 
   # scenario "User scrolls down landing page" do

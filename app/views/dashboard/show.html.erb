@@ -1,2 +1,7 @@
 <h1>Yo!</h1>
-<%= link_to "Logout", logout_path, method: :delete %>
+
+<% if current_user %>
+  <%= image_tag current_user.image_url, class: "user-image" %>
+  Signed in as <strong><%= current_user.name %></strong>!
+  <%= link_to "Logout", logout_path, method: :delete, id: "logout-btn" %>
+<% end %>
