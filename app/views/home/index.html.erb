@@ -1,20 +1,22 @@
 <div>
   <div class="grayscale">
     <%= image_tag "veggies.jpg", class: "veggie-pic" %>
-    <p id="title-main">PaleoPal</p>
-    <div class="user-info">
-      <% if current_user %>
-        <%= image_tag current_user.image_url, class: "user-image" %>
-        Signed in as <strong><%= current_user.name %></strong>!
-        <%= link_to "Logout", logout_path, method: :delete, class: "logout-btn" %>
-      <% else %>
-        <%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-lg btn-default btn-home login-btn" %>
-      <% end %>
-    </div>
+    <p class="title-main">PaleoPal</p>
+    <%= render partial: "partials/user_buttons", id: "upper-landing-login-btn" %>
     <%= render partial: "partials/tagline" %>
   </div><!-- End of upper section with image -->
 
   <div class="testimonials">
     <%= render partial: "partials/user_testimonials" %>
   </div><!-- End of testimonial section -->
+
+  <div class="how-it-works grayscale">
+    <%= image_tag "antique-table.jpg", class: "table-pic" %>
+    <div class="container">
+      <p class="how-header">How Does it Work?</p>
+      <%= render partial: "partials/how_it_works" %>
+      <%= render partial: "partials/screenshots" %>
+      <%#= render partial: "partials/user_buttons", id: "lower-landing-login-btn" %>
+    </div>
+  </div><!-- End of how-it-works section -->
 </div>

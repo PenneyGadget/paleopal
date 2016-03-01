@@ -1,0 +1,9 @@
+<div class="user-buttons">
+  <% if current_user %>
+    <%= image_tag current_user.image_url, class: "user-image" %>
+    Signed in as <strong><%= current_user.name %></strong>!
+    <%= link_to "Logout", logout_path, method: :delete, class: "logout-btn" %>
+  <% else %>
+    <%= link_to "Login with Facebook", "/auth/facebook", class: "btn btn-lg btn-default btn-home login-btn" %>
+  <% end %>
+</div>
