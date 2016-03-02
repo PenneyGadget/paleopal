@@ -1,5 +1,5 @@
 jQuery ->
-  $('body').prepend('<div id="fb-root"></div>')
+  $('body').prepend('<div id="fb-root" data-app-id="<%= ENV["FACEBOOK_APP_ID"] %>"></div>')
 
   $.ajax
     url: "#{window.location.protocol}//connect.facebook.net/en_US/all.js"
@@ -8,7 +8,12 @@ jQuery ->
 
 
 window.fbAsyncInit = ->
-  FB.init(appId: '<%= ENV["FACEBOOK_APP_ID"] %>', cookie: true)
+  FB.init(
+    appId: '<%= ENV["FACEBOOK_APP_ID"] %>',
+    cookie: true,
+    status : true,
+    xfbml  : true
+    )
 
   $('.login-btn').click (e) ->
     e.preventDefault()
