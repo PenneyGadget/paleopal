@@ -1,0 +1,34 @@
+<%= render partial: "partials/navbar" %>
+
+<body class="new-entry">
+  <div class="container entry-form">
+    <%= form_for @entry do |f| %>
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <%= f.label :date %>
+        <%= f.date_field :date, class:"form-control" %>
+      </div>
+      <div class="form-group col-sm-6">
+        <%= f.label :meal %>
+        <select id="entry_meal" name="entry[meal]" class="form-control">
+          <option value="breakfast">Breakfast</option>
+          <option value="lunch">Lunch</option>
+          <option value="dinner">Dinner</option>
+          <option value="snack">Snack</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :ingredients %>
+      <%= f.text_area :ingredients, class:"form-control", rows:"10" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :notes %>
+      <%= f.text_area :notes, class:"form-control", rows:"10" %>
+    </div>
+      <%= f.submit "SAVE", class: "submit-btn" %>
+
+      <%= f.submit "CALCULATE", class: "submit-btn" %>
+    <% end %>
+  </div>
+</body>

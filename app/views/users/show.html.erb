@@ -1,0 +1,30 @@
+<%= render partial: "partials/navbar" %>
+
+<body class="user-dashboard">
+  <div class="container">
+    <div class="text-center"><%= link_to "Create New Entry", new_entry_path, class: "btn btn-default entry-btn" %></div>
+    <table class="table table-bordered table-responsive table-hover entries-table">
+    <thead>
+      <tr>
+        <th class="text-center" width="15%">DATE</th>
+        <th class="text-center" width="17%">BREAKFAST</th>
+        <th class="text-center" width="17%">LUNCH</th>
+        <th class="text-center" width="17%">DINNER</th>
+        <th class="text-center" width="17%">SNACKS</th>
+        <th class="text-center" width="17%">TOTALS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">+</td>
+        <td class="text-center"><%= link_to "+", @entry, class: "btn btn-lg btn-success" %></td>
+        <td class="text-center">+</td>
+        <td class="text-center">+</td>
+        <td class="text-center">+</td>
+        <td class="text-center">+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>
+</body>

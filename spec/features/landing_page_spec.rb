@@ -14,9 +14,10 @@ RSpec.feature "Landing page", :type => :feature do
     visit root_path
 
     expect(page).to have_css("div.testimonials")
-    # expect(page).to have_text("How it Works")
-    # expect(page).to have_css("#how-it-works")
-    # expect(page).to have_css(".screenshots")
-    # expect(page).to have_button("Login with Facebook")
+    expect(page).to have_text("OUR USERS LOVE US...")
+    expect(page).to have_text("How Does it Work?")
+    expect(page).to have_css("div.how-it-works")
+    expect(page).to have_css("div.screenshots")
+    expect(page).to have_link("Login with Facebook")
   end
 end

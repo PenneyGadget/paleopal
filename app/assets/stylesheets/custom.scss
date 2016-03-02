@@ -128,7 +128,45 @@
     border-radius: 10px;
   }
 
-  #lower-landing-login-btn {
-    // position: absolute;
-    // bottom: 800px;
-  }
+// User dashboard
+body.user-dashboard {
+  padding-top: 70px;
+}
+
+.user-image-nav {
+  padding-left: 30px;
+  // border-radius: 10px;
+}
+
+.navbar-btn {
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+  font-size: 1.7em;
+}
+
+.entry-btn {
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+  font-size: 3em;
+  margin-top: 70px;
+}
+
+.entries-table {
+  margin-top: 50px;
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+// New Entry
+body.new-entry {
+  padding-top: 70px;
+}
+
+.entry-form {
+  margin-top: 50px;
+  border-style: groove;
+  padding: 50px;
+  font-family: 'Amatic SC', cursive;
+  font-size: 3em;
+}

@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   get 'auth/facebook/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get 'dashboard', to: 'dashboard#show'
+  get '/dashboard', to: 'users#show'
+
+  resources :entries, only: [:new, :create, :show]
 end
