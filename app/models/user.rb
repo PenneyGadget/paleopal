@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :days
   has_many :entries
 
   def self.find_or_create_by_auth(auth)

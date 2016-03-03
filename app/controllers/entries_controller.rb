@@ -5,10 +5,12 @@ class EntriesController < ApplicationController
 
   def create
     # do stuff here
-    # binding.pry
+    gold = { title: params["entry"]["meal"], ingredients: params["entry"]["ingredients"].split(/ *, */) }
+
     ns = NutritionService.new
-    nutrients = ns.get_nutrition_values(params["entry"]["ingredients"])
-    params["entry"]["protein"] = nutrients
+    nutrients = ns.get_nutrition_values(gold)
+    binding.pry
+    # params["entry"]["protein"] = nutrients # split - title = meal, ingred = array of strings
     # @entry = Entry.create(entry_params)
     # if @entry.save
       # validations
