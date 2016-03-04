@@ -36,3 +36,9 @@ end
 group :production do
   gem 'rails_12factor'
 end
+
+group :test do
+  gem 'vcr'
+  gem 'webmock'
+  gem 'simplecov'
+end

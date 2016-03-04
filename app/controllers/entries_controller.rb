@@ -4,29 +4,20 @@ class EntriesController < ApplicationController
   end
 
   def create
-    # do stuff here
-    gold = { title: params["entry"]["meal"], ingredients: params["entry"]["ingredients"].split(/ *, */) }
+    @entry = Entry.create(entry_params)
+    if @entry.save
+      meal_data = { ingredients: params["entry"]["ingredients"].split(/ *, */) }
+      ns = NutritionService.new
+      nutrients = ns.get_nutrition_values(meal_data)
+      binding.pry
+      # entry is saving to db! BUT it's not associated with the user, and still
+      # needs the nutrients added in
 
-    ns = NutritionService.new
-    nutrients = ns.get_nutrition_values(gold)
-    binding.pry
-    # params["entry"]["protein"] = nutrients # split - title = meal, ingred = array of strings
-    # @entry = Entry.create(entry_params)
-    # if @entry.save
-      # validations
-      # NutritionService.new
-      # API needs to gather info based on ingredients - parse as you need (meal becomes 3 nutrient columns)
-      # return to controller so it can save to db
-      # (class?) DayEntries (does day exist? add values? -)
-      # need to add day_id to entry values - need to first check if a day already exists in Days table
-      # if it does, pull out current nutrient values and add to it and use that day_id
-      # if it doesn't, add a new day to Days table with just that meal, and add new day_id to entry_params
-      # Entry.save
-      redirect_to dashboard_path
-    # else
-    #   flash.now[:error] = @entry.errors.full_messages.join(", ")
-    #   render :new
-    # end
+    redirect_to dashboard_path
+    else
+      flash.now[:error] = @entry.errors.full_messages.join(", ")
+      render :new
+    end
   end
 
   def show
@@ -43,6 +34,6 @@ class EntriesController < ApplicationController
                                   :protein,
                                   :carbs,
                                   :fat,
-                                  :day_id)
+                                  :user_id)
   end
 end

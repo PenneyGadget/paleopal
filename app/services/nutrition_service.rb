@@ -4,19 +4,20 @@ class NutritionService
   def initialize
     @connection = Faraday.new(:url => "https://api.edamam.com") do |faraday|
       faraday.adapter Faraday.default_adapter
-      # faraday.params["app_id"] = EDAMAM_RA_APP_ID
-      # faraday.params["app_key"] = EDAMAM_RA_APP_KEY
-      faraday.params["app_id"] = "bc722b16"
-      faraday.params["app_key"] = "ae7718a5c8249d62b33036a3ae66c1a0"
+      faraday.params['app_id'] = ENV['EDAMAM_ND_APP_ID']
+      faraday.params['app_key'] = ENV['EDAMAM_ND_APP_KEY']
     end
   end
 
-  def get_nutrition_values(gold)
-    @connection.post do |request|
-      request.url("/api/nutrition-details")
-      request.headers["Content-Type"] = "application/json"
-      request.body = gold.to_json
+  def get_nutrition_values(meal_data)
+    data = meal_data[:ingredients].map do |i|
+      connection.get do |request|
+        request.url("/api/nutrition-data")
+        request.params["ingr"] = i
+      end
     end
+    parsed_data = data.map { |i| parse(i) }
+    Macronutrients.collect_macronutrients(parsed_data)
   end
 
   private
