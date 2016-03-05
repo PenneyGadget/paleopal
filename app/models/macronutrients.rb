@@ -15,7 +15,7 @@ class Macronutrients
     summed = {}
     summed[:fat] = values.inject(0) { |sum, hash| sum + hash[:fat] }
     summed[:carbs] = values.inject(0) { |sum, hash| sum + hash[:carbs] }
-    summed[:protein] = values.inject(0) { |sum, hash| sum + hash[:fat] }
+    summed[:protein] = values.inject(0) { |sum, hash| sum + hash[:protein] }
     summed
   end
 end

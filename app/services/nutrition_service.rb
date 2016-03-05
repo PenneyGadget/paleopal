@@ -10,13 +10,13 @@ class NutritionService
   end
 
   def get_nutrition_values(meal_data)
-    data = meal_data[:ingredients].map do |i|
+    data = meal_data[:ingredients].map do |ingredient|
       connection.get do |request|
         request.url("/api/nutrition-data")
-        request.params["ingr"] = i
+        request.params["ingr"] = ingredient
       end
     end
-    parsed_data = data.map { |i| parse(i) }
+    parsed_data = data.map { |ingredient| parse(ingredient) }
     Macronutrients.collect_macronutrients(parsed_data)
   end
 

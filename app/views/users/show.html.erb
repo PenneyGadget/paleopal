@@ -15,14 +15,48 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="text-center date-column">+</td>
-        <td class="text-center breakfast-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success" %></td>
-        <td class="text-center lunch-column">+</td>
-        <td class="text-center dinner-column">+</td>
-        <td class="text-center snack-column">+</td>
-        <td class="text-center totals-column">+</td>
-      </tr>
+      <% if current_user.entries.count == 0 %>
+        <tr>
+          <td class="text-center date-column"></td>
+          <td class="text-center breakfast-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success" %></td>
+          <td class="text-center lunch-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success" %></td>
+          <td class="text-center dinner-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success" %></td>
+          <td class="text-center snack-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success" %></td>
+          <td class="text-center totals-column"></td>
+        </tr>
+      <% else %>
+        <% current_user.entries.each do |entry| %>
+          <tr>
+            <td class="text-center date-column"><%= entry.date.strftime("%a %b %e, %Y") %></td>
+
+            <% if entry.meal == "breakfast" %>
+              <td class="text-center breakfast-column">Fat: <%= entry.fat %>g<br>Carbs: <%= entry.carbs %>g<br>Protein: <%= entry.protein %>g</td>
+            <% else %>
+              <td class="text-center breakfast-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success add-entry-btn" %></td>
+            <% end %>
+
+            <% if entry.meal == "lunch" %>
+              <td class="text-center breakfast-column">Fat: <%= entry.fat %>g<br>Carbs: <%= entry.carbs %>g<br>Protein: <%= entry.protein %>g</td>
+            <% else %>
+              <td class="text-center breakfast-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success add-entry-btn" %></td>
+            <% end %>
+
+            <% if entry.meal == "dinner" %>
+              <td class="text-center breakfast-column">Fat: <%= entry.fat %>g<br>Carbs: <%= entry.carbs %>g<br>Protein: <%= entry.protein %>g</td>
+            <% else %>
+              <td class="text-center breakfast-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success add-entry-btn" %></td>
+            <% end %>
+
+            <% if entry.meal == "snack" %>
+              <td class="text-center breakfast-column">Fat: <%= entry.fat %>g<br>Carbs: <%= entry.carbs %>g<br>Protein: <%= entry.protein %>g</td>
+            <% else %>
+              <td class="text-center breakfast-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success add-entry-btn" %></td>
+            <% end %>
+
+            <td class="text-center totals-column"></td>
+          </tr>
+          <% end %>
+      <% end %>
     </tbody>
   </table>
 
