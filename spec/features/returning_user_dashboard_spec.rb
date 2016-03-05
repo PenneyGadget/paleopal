@@ -24,7 +24,7 @@ RSpec.feature "New entries page", :type => :feature do
       # visit root_path
       # click_on "Login with Facebook"
       visit dashboard_path
-
+      save_and_open_page
       expect(page).to have_content("Thu Mar 3, 2016")
       expect(page).to have_css("td.snack-column", text: "Fat: 28g")
       expect(page).to have_css("td.snack-column", text: "Carbs: 12g")

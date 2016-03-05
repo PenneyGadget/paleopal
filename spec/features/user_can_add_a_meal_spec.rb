@@ -9,7 +9,7 @@ RSpec.feature "New entries page", :type => :feature do
 
       fill_in "Date", with: "03/01/2016"
       find("select#entry-meal").select("Breakfast")
-      fill_in "Ingredients", with: "2 eggs, 4oz bacon, 1 banana"
+      fill_in "Ingredients", with: "2 eggs, 4oz bacon, 12oz coffee"
       fill_in "Notes", with: "My first food diary entry!"
       click_on "SAVE"
 
@@ -17,8 +17,8 @@ RSpec.feature "New entries page", :type => :feature do
       expect(page).to have_content("New meal logged!")
       # expect(page).to have_content("Tues Mar 1, 2016") #is showing Jan 3
       expect(page).to have_content("Fat: 54g")
-      expect(page).to have_content("Carbs: 29g")
-      expect(page).to have_content("Protein: 28g")
+      expect(page).to have_content("Carbs: 2g")
+      expect(page).to have_content("Protein: 27g")
     end
   end
 end

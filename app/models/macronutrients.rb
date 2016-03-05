@@ -2,9 +2,9 @@ class Macronutrients
   def self.collect_macronutrients(parsed_data)
     parsed_data.map do |ingredient|
       { ingredient[:ingredients][0][:text] => {
-        fat: ingredient[:totalNutrients][:FAT][:quantity],
-        carbs: ingredient[:totalNutrients][:CHOCDF][:quantity],
-        protein: ingredient[:totalNutrients][:PROCNT][:quantity]
+        fat: ingredient[:totalNutrients][:FAT] ? ingredient[:totalNutrients][:FAT][:quantity] : 0,
+        carbs: ingredient[:totalNutrients][:CHOCDF] ? ingredient[:totalNutrients][:CHOCDF][:quantity] : 0,
+        protein: ingredient[:totalNutrients][:PROCNT] ? ingredient[:totalNutrients][:PROCNT][:quantity] : 0
         }
       }
     end
