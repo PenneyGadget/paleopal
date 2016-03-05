@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"></head>
 <body>
 
-<%= flash.each do |type, msg| %>
+<% flash.each do |type, msg| %>
   <div class="flashes">
     <%= content_tag :div, msg %>
   </div>

@@ -5,15 +5,16 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.create(entry_params)
+    @entry.user_id = current_user.id
     if @entry.save
       meal_data = { ingredients: params["entry"]["ingredients"].split(/ *, */) }
       ns = NutritionService.new
       nutrients = ns.get_nutrition_values(meal_data)
-      binding.pry
-      # entry is saving to db! BUT it's not associated with the user, and still
-      # needs the nutrients added in
-
-    redirect_to dashboard_path
+      summed_nutrients = Macronutrients.sum_macronutrients(nutrients)
+      @entry.update_attributes(summed_nutrients)
+      @entry.save
+      redirect_to dashboard_path
+      flash[:success] = "New meal logged!"
     else
       flash.now[:error] = @entry.errors.full_messages.join(", ")
       render :new
@@ -31,9 +32,6 @@ class EntriesController < ApplicationController
                                   :meal,
                                   :ingredients,
                                   :notes,
-                                  :protein,
-                                  :carbs,
-                                  :fat,
                                   :user_id)
   end
 end
