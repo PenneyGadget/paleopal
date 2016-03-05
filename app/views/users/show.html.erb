@@ -36,21 +36,21 @@
             <% end %>
 
             <% if entry.meal == "lunch" %>
-              <td class="text-center breakfast-column">Fat: <%= entry.fat %>g<br>Carbs: <%= entry.carbs %>g<br>Protein: <%= entry.protein %>g</td>
+              <td class="text-center lunch-column">Fat: <%= entry.fat %>g<br>Carbs: <%= entry.carbs %>g<br>Protein: <%= entry.protein %>g</td>
             <% else %>
-              <td class="text-center breakfast-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success add-entry-btn" %></td>
+              <td class="text-center lunch-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success add-entry-btn" %></td>
             <% end %>
 
             <% if entry.meal == "dinner" %>
-              <td class="text-center breakfast-column">Fat: <%= entry.fat %>g<br>Carbs: <%= entry.carbs %>g<br>Protein: <%= entry.protein %>g</td>
+              <td class="text-center dinner-column">Fat: <%= entry.fat %>g<br>Carbs: <%= entry.carbs %>g<br>Protein: <%= entry.protein %>g</td>
             <% else %>
-              <td class="text-center breakfast-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success add-entry-btn" %></td>
+              <td class="text-center dinner-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success add-entry-btn" %></td>
             <% end %>
 
             <% if entry.meal == "snack" %>
-              <td class="text-center breakfast-column">Fat: <%= entry.fat %>g<br>Carbs: <%= entry.carbs %>g<br>Protein: <%= entry.protein %>g</td>
+              <td class="text-center snack-column">Fat: <%= entry.fat %>g<br>Carbs: <%= entry.carbs %>g<br>Protein: <%= entry.protein %>g</td>
             <% else %>
-              <td class="text-center breakfast-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success add-entry-btn" %></td>
+              <td class="text-center snack-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success add-entry-btn" %></td>
             <% end %>
 
             <td class="text-center totals-column"></td>

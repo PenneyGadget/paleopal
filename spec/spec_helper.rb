@@ -1,7 +1,7 @@
 require 'webmock/rspec'
 require 'vcr'
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start('rails')
 
 WebMock.disable_net_connect!(allow_localhost: true)
 

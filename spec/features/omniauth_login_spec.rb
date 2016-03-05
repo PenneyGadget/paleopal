@@ -11,7 +11,7 @@ describe "Login from root page" do
       expect(current_path).to eq(dashboard_path)
 
       click_on "Logout"
-      expect(current_path).to eq(logout_path)
+      expect(current_path).to eq(root_path)
     end
   end
 end
