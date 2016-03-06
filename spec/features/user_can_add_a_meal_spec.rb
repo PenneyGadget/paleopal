@@ -21,4 +21,19 @@ RSpec.feature "New entries page", :type => :feature do
       expect(page).to have_content("Protein: 27g")
     end
   end
+
+  scenario "User sees an error if they do not enter required field" do
+    visit root_path
+    click_on "Login with Facebook"
+    visit new_entry_path
+
+    fill_in "Date", with: ""
+    find("select#entry-meal").select("Breakfast")
+    fill_in "Ingredients", with: ""
+    fill_in "Notes", with: "Blarg"
+    click_on "SAVE"
+
+    expect(current_path).to eq(new_entry_path)
+    expect(page).to have_content("Date can't be blank, Ingredients can't be blank")
+  end
 end

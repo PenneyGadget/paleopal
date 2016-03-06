@@ -27,8 +27,12 @@
       <%= f.text_area :notes, class:"form-control form-text", rows:"7" %>
     </div>
       <%= f.submit "SAVE", class: "submit-btn" %>
-
       <%= f.submit "CALCULATE", class: "submit-btn" %>
+      <p class="form-control-static pull-right">
+        Fat: <span class="fat-val"><%= @entry.fat ? @entry.fat : 0 %></span>g
+        | Carbs: <span class="carb-val"><%= @entry.carbs ? @entry.carbs : 0%></span>g
+        | Protein: <span class="protein-val"><%= @entry.protein ? @entry.protein : 0%></span>g
+      </p>
     <% end %>
   </div>
 </body>

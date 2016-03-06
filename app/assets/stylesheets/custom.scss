@@ -4,12 +4,30 @@
   position: relative;
 }
 
-// Landing page image
+// Flashes
+.flashes {
+  font-family: "Amatic SC", cursive;
+  font-weight: bold;
+  font-size: 1.6em;
+
+  background: #FFF6BF;
+	border-top: 2px solid #FFD324;
+	border-bottom: 2px solid #FFD324;
+	text-align: center;
+	margin: 10px auto;
+	padding: 5px 20px;
+}
+
+// Landing page images
 
 .veggie-pic {
   position: relative;
   max-width: 100%;
   height: auto;
+}
+
+.table-pic {
+  height: 1150px;
 }
 
 .grayscale {
@@ -38,7 +56,7 @@
 // Landing page tagline
 .tagline.rounded {
   position: absolute;
-  right: 70px;
+  right: 90px;
   top: 450px;
   font-family: 'Amatic SC', cursive;
   font-size: 2.2em;
@@ -48,18 +66,21 @@
   border-radius: 10px;
 }
 
-// Login/Logout buttons
-.login-btn {
+// Landing page buttons
+.login-btn, .dashboard-btn {
   position: absolute;
-  right: 270px;
-  top: 310px;
-  font-family: 'Dawning of a New Day', cursive;
+  right: 300px;
+  top: 330px;
+  font-family: 'Amatic SC', cursive;
   font-weight: bold;
   font-size: 1.7em;
 }
 
-.logout-btn {
-  font-family: 'Dawning of a New Day', cursive;
+.resources-link, {
+  font-family: 'Amatic SC', cursive;
+  text-align: center;
+  font-weight: bold;
+  font-size: 3em;
 }
 
 // Testimonial section

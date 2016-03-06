@@ -16,15 +16,8 @@ class NutritionService
         request.params["ingr"] = ingredient
       end
     end
-    if ingredient[:parsed][:foodMatch]
-      parsed_data = data.map { |ingredient| parse(ingredient) }
-      Macronutrients.collect_macronutrients(parsed_data)
-    else
-      redirect_to new_entry_path
-      #remove unmatched item from the parse_data hash and add it to an error_data
-      #hash and display an error -- "Ingredient not found in database" and instruct
-      #user how to proceed
-    end
+    parsed_data = data.map { |ingredient| parse(ingredient) }
+    Macronutrients.collect_macronutrients(parsed_data)
   end
 
   private

@@ -16,8 +16,8 @@ class EntriesController < ApplicationController
       redirect_to dashboard_path
       flash[:success] = "New meal logged!"
     else
-      flash.now[:error] = @entry.errors.full_messages.join(", ")
-      render :new
+      flash[:error] = @entry.errors.full_messages.join(", ")
+      redirect_to new_entry_path
     end
   end
 
