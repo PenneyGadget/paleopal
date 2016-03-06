@@ -19,7 +19,7 @@ RSpec.feature "Landing page", :type => :feature do
     expect(page).to have_css("div.how-it-works")
     expect(page).to have_css("div.screenshots")
     expect(page).to have_link("Login with Facebook")
-    expect(page).to have_text("Check out all of our great Paleo resources")
+    expect(page).to have_text("Check out all of our helpful Paleo resources")
     expect(page).to have_link("here")
   end
 end
