@@ -12,6 +12,7 @@ gem 'pg'
 gem 'omniauth-facebook'
 gem 'omniauth'
 gem 'coffee-rails'
+gem 'responders'
 
 group :development, :test do
   gem 'byebug'
