@@ -42,7 +42,7 @@
                                                    Carbs: <%= day_lunch(day_entry)[:carbs] %>g<br>
                                                    Protein: <%= day_lunch(day_entry)[:protein] %>g</td>
             <% else %>
-              <td class="text-center lunch-column"><%= link_to "+", new_entry_path, class: "btn btn-lg btn-success add-entry-btn" %></td>
+              <td class="text-center lunch-column"><%= link_to "+", new_entry_path(date: day_entry.date, meal: "lunch"), class: "btn btn-lg btn-success add-entry-btn" %></td>
             <% end %>
 
             <% if current_user.entries.where(date: day_entry.date).exists?(meal: "dinner") %>
@@ -50,7 +50,7 @@
                                                     Carbs: <%= day_dinner(day_entry)[:carbs] %>g<br>
                                                     Protein: <%= day_dinner(day_entry)[:protein] %>g</td>
             <% else %>
-              <td class="text-center dinner-column"><%= link_to "+", new_entry_path, class: "btn btn-lg btn-success add-entry-btn" %></td>
+              <td class="text-center dinner-column"><%= link_to "+", new_entry_path(date: day_entry.date, meal: "dinner"), class: "btn btn-lg btn-success add-entry-btn" %></td>
             <% end %>
 
             <% if current_user.entries.where(date: day_entry.date).exists?(meal: "snack") %>
@@ -58,7 +58,7 @@
                                                    Carbs: <%= day_snack(day_entry)[:carbs] %>g<br>
                                                    Protein: <%= day_snack(day_entry)[:protein] %>g</td>
             <% else %>
-              <td class="text-center snack-column"><%= link_to "+", new_entry_path, class: "btn btn-lg btn-success add-entry-btn" %></td>
+              <td class="text-center snack-column"><%= link_to "+", new_entry_path(date: day_entry.date, meal: "snack"), class: "btn btn-lg btn-success add-entry-btn" %></td>
             <% end %>
 
             <td class="text-center totals-column">Fat: <%= get_day_totals(day_entry)[:fat] %>g<br>
