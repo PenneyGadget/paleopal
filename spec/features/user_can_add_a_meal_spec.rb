@@ -8,7 +8,7 @@ RSpec.feature "New entries page", :type => :feature do
       visit new_entry_path
 
       fill_in "Date", with: "03/03/2016"
-      find("select#entry-meal").select("Breakfast")
+      select "Breakfast", from: "Meal"
       fill_in "Ingredients", with: "2 eggs, 4oz bacon, 12oz coffee"
       fill_in "Notes", with: "My first food diary entry!"
       click_on "SAVE"
@@ -28,7 +28,7 @@ RSpec.feature "New entries page", :type => :feature do
     visit new_entry_path
 
     fill_in "Date", with: ""
-    find("select#entry-meal").select("Breakfast")
+    select "Breakfast", from: "Meal"
     fill_in "Ingredients", with: ""
     fill_in "Notes", with: "Blarg"
     click_on "SAVE"

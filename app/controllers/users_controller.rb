@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
-    # @meals = current_user.meals -- @meal.each etc. in view
-    # @meals = current_user.entries
-    #push logic down stack and fetch from models
+    if current_user
+      @user = current_user
+    else
+      unauthenticated_user_error
+    end
   end
 end

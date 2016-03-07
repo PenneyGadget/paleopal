@@ -29,7 +29,7 @@
           <tr>
             <td class="text-center date-column"><%= day_entry.date.strftime("%a %b %e, %Y") %></td>
 
-            <% if current_user.entries.where(date: day_entry.date).exists?(meal: "breakfast") %>
+            <% if current_user.entries.where(date: day_entry.date).exists?(meal: "Breakfast") %>
               <td class="text-center breakfast-column">Fat: <%= day_breakfast(day_entry)[:fat] %>g<br>
                                                        Carbs: <%= day_breakfast(day_entry)[:carbs] %>g<br>
                                                        Protein: <%= day_breakfast(day_entry)[:protein] %>g</td>
@@ -37,7 +37,7 @@
               <td class="text-center breakfast-column"><%= link_to "+", new_entry_path(date: day_entry.date, meal: "breakfast"), class: "btn btn-lg btn-success add-entry-btn" %></td>
             <% end %>
 
-            <% if current_user.entries.where(date: day_entry.date).exists?(meal: "lunch") %>
+            <% if current_user.entries.where(date: day_entry.date).exists?(meal: "Lunch") %>
               <td class="text-center lunch-column">Fat: <%= day_lunch(day_entry)[:fat] %>g<br>
                                                    Carbs: <%= day_lunch(day_entry)[:carbs] %>g<br>
                                                    Protein: <%= day_lunch(day_entry)[:protein] %>g</td>
@@ -45,7 +45,7 @@
               <td class="text-center lunch-column"><%= link_to "+", new_entry_path(date: day_entry.date, meal: "lunch"), class: "btn btn-lg btn-success add-entry-btn" %></td>
             <% end %>
 
-            <% if current_user.entries.where(date: day_entry.date).exists?(meal: "dinner") %>
+            <% if current_user.entries.where(date: day_entry.date).exists?(meal: "Dinner") %>
               <td class="text-center dinner-column">Fat: <%= day_dinner(day_entry)[:fat] %>g<br>
                                                     Carbs: <%= day_dinner(day_entry)[:carbs] %>g<br>
                                                     Protein: <%= day_dinner(day_entry)[:protein] %>g</td>
@@ -53,7 +53,7 @@
               <td class="text-center dinner-column"><%= link_to "+", new_entry_path(date: day_entry.date, meal: "dinner"), class: "btn btn-lg btn-success add-entry-btn" %></td>
             <% end %>
 
-            <% if current_user.entries.where(date: day_entry.date).exists?(meal: "snack") %>
+            <% if current_user.entries.where(date: day_entry.date).exists?(meal: "Snack") %>
               <td class="text-center snack-column">Fat: <%= day_snack(day_entry)[:fat] %>g<br>
                                                    Carbs: <%= day_snack(day_entry)[:carbs] %>g<br>
                                                    Protein: <%= day_snack(day_entry)[:protein] %>g</td>

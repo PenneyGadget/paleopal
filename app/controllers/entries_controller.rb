@@ -1,8 +1,12 @@
 class EntriesController < ApplicationController
   def new
-    @entry = Entry.new
-    @entry.meal = params["meal"] if params["meal"]
-    @entry.date = params["date"] if params["date"]
+    if current_user
+      @entry = Entry.new(date: Date.today, meal: "Choose Meal")
+      @entry.meal = params["meal"] if params["meal"]
+      @entry.date = params["date"] if params["date"]
+    else
+      unauthenticated_user_error
+    end
   end
 
   def create
@@ -20,7 +24,11 @@ class EntriesController < ApplicationController
   end
 
   def show
-    @entry = Entry.find(params[:id])
+    if current_user
+      @entry = Entry.find(params[:id])
+    else
+      unauthenticated_user_error
+    end
   end
 
   def calc_nutrients(meal_data)
