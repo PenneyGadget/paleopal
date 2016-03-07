@@ -13,6 +13,7 @@ gem 'omniauth-facebook'
 gem 'omniauth'
 gem 'coffee-rails'
 gem 'responders'
+gem 'skylight'
 
 group :development, :test do
   gem 'byebug'

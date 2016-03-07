@@ -1,6 +1,8 @@
 class EntriesController < ApplicationController
   def new
     @entry = Entry.new
+    @entry.meal = params["meal"] if params["meal"]
+    @entry.date = params["date"] if params["date"]
   end
 
   def create
