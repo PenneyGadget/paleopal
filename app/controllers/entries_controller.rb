@@ -4,7 +4,6 @@ class EntriesController < ApplicationController
   end
 
   def create
-    
     @entry = Entry.create(entry_params)
     @entry.user_id = current_user.id
     if @entry.save
@@ -36,7 +35,7 @@ class EntriesController < ApplicationController
       ns = NutritionService.new
       nutrients = ns.get_nutrition_values(meal_data)
       summed_nutrients = Macronutrients.sum_macronutrients(nutrients)
-      render :json => { :result => 'success', :nutrients => summed_nutrients }
+      render :json => { :result => "success", :nutrients => summed_nutrients }
     else
       flash[:error] = "You don't belong here."
       redirect_to new_entry_path
