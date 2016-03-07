@@ -13,9 +13,9 @@ class Macronutrients
   def self.sum_macronutrients(nutrients)
     values = nutrients.map { |hash| hash.values }.flatten
     summed = {}
-    summed[:fat] = values.inject(0) { |sum, hash| sum + hash[:fat] }
-    summed[:carbs] = values.inject(0) { |sum, hash| sum + hash[:carbs] }
-    summed[:protein] = values.inject(0) { |sum, hash| sum + hash[:protein] }
+    summed[:fat] = values.inject(0) { |sum, hash| sum + hash[:fat].floor }
+    summed[:carbs] = values.inject(0) { |sum, hash| sum + hash[:carbs].floor }
+    summed[:protein] = values.inject(0) { |sum, hash| sum + hash[:protein].floor }
     summed
   end
 end

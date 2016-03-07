@@ -1,0 +1,30 @@
+$(document).ready(function() {
+  $("#form-submit").hide();
+  $("#entry_ingredients").keypress(function(){
+    $("#form-submit").hide();
+    $("#calc-values").show();
+  });
+  $("#calc-values").click(function(event){
+    event.preventDefault();
+    params = $("#entry_ingredients").val();
+    $.ajax({
+      url: "/entry/calculate",
+      type: "POST",
+      data: {ingredients: params},
+      dataType: 'json',
+      success: function(response){
+        $("#form-submit").show();
+        $("#calc-values").hide();
+        $(".fat-val").text(response.nutrients.fat);
+        $(".carb-val").text(response.nutrients.carbs);
+        $(".protein-val").text(response.nutrients.protein);
+        $("#entry_fat").val(response.nutrients.fat);
+        $("#entry_carbs").val(response.nutrients.carbs);
+        $("#entry_protein").val(response.nutrients.protein);
+      },
+      error: function(xhr, ajaxOptions, error){
+        alert("error" + error);
+      },
+    });
+  });
+});

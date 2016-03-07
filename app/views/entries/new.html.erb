@@ -26,8 +26,12 @@
       <%= f.label :notes %>
       <%= f.text_area :notes, class:"form-control form-text", rows:"7" %>
     </div>
-      <%= f.submit "SAVE", class: "submit-btn" %>
-      <%= f.submit "CALCULATE", class: "submit-btn" %>
+      <%= f.hidden_field :fat %>
+      <%= f.hidden_field :carbs %>
+      <%= f.hidden_field :protein %>
+
+      <%= f.submit "SAVE", class: "btn btn-default submit-btn", id: "form-submit" %>
+      <%= link_to "CALCULATE", "#", class: "btn btn-default submit-btn", id: "calc-values" %>
       <p class="form-control-static pull-right">
         Fat: <span class="fat-val"><%= @entry.fat ? @entry.fat : 0 %></span>g
         | Carbs: <span class="carb-val"><%= @entry.carbs ? @entry.carbs : 0%></span>g
