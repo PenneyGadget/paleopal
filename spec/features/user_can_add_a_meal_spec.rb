@@ -17,8 +17,8 @@ RSpec.feature "New entries page", :type => :feature do
       expect(page).to have_content("New meal logged!")
       expect(page).to have_content("Thu Mar 3, 2016")
       expect(page).to have_content("Fat: 54g")
-      expect(page).to have_content("Carbs: 2g")
-      expect(page).to have_content("Protein: 27g")
+      expect(page).to have_content("Carbs: 1g")
+      expect(page).to have_content("Protein: 26g")
     end
   end
 
