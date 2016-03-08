@@ -10,13 +10,7 @@
       </div>
       <div class="form-group col-sm-6">
         <%= f.label :meal %>
-        <%= f.select :meal, options_for_select(["Choose Meal", "Breakfast", "Lunch", "Dinner", "Snack"], @entry.meal.capitalize), class:"form-control dropdown-text", id:"entry-meal" %>
-        <!-- <select id="entry-meal" name="entry[meal]" class="form-control dropdown-text">
-          <option value="breakfast">Breakfast</option>
-          <option value="lunch">Lunch</option>
-          <option value="dinner">Dinner</option>
-          <option value="snack">Snack</option>
-        </select> -->
+        <%= f.select :meal, options_for_select(["Choose Meal", "Breakfast", "Lunch", "Dinner", "Snack"], @entry.meal.capitalize), {}, { class:"form-control dropdown-text" } %>
       </div>
     </div>
     <div class="form-group">
