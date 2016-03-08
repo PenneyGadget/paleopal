@@ -2,7 +2,7 @@
 
 <body class="new-entry">
   <div class="container entry-form">
-    <%= form_for @entry do |f| %>
+    <%= form_for @entry, url: user_entries_path do |f| %>
     <div class="row">
       <div class="form-group col-sm-6">
         <%= f.label :date %>

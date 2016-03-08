@@ -10,7 +10,12 @@ class ApplicationController < ActionController::Base
                 :day_lunch,
                 :day_dinner,
                 :day_snack,
-                :get_day_totals
+                :get_day_totals,
+                :sort_by_meal,
+                :breakfast,
+                :lunch,
+                :dinner,
+                :snacks
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
@@ -20,8 +25,28 @@ class ApplicationController < ActionController::Base
     render(file: "/public/404") unless current_user
   end
 
-  def get_day_entries
-    current_user.entries.select("date").group("date").order(date: :desc)
+  def sort_by_meal(day_entries)
+    day_entries.sort_by(&:meal)
+  end
+
+  # def get_day_entries
+  #   current_user.entries.select("date").group("date").order(date: :desc)
+  # end
+
+  def breakfast(day_entry)
+    current_user.entries.where(date: day_entry.date, meal: "Breakfast")
+  end
+
+  def lunch(day_entry)
+    current_user.entries.where(date: day_entry.date, meal: "Lunch")
+  end
+
+  def dinner(day_entry)
+    current_user.entries.where(date: day_entry.date, meal: "Dinner")
+  end
+
+  def snacks(day_entry)
+    current_user.entries.where(date: day_entry.date, meal: "Snack")
   end
 
   def day_breakfast(day_entry)

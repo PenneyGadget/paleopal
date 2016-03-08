@@ -1,0 +1,59 @@
+<%= render partial: "partials/navbar" %>
+
+<body class="user-dashboard">
+  <div class="container">
+    <div class="text-center"><%= link_to "Create New Entry", new_user_entry_path, class: "btn btn-default entry-btn" %></div>
+    <table class="table table-bordered table-responsive table-hover entries-table">
+    <thead>
+      <tr>
+        <th class="text-center" width="15%">DATE</th>
+        <th class="text-center" width="17%">BREAKFAST</th>
+        <th class="text-center" width="17%">LUNCH</th>
+        <th class="text-center" width="17%">DINNER</th>
+        <th class="text-center" width="17%">SNACKS</th>
+        <th class="text-center" width="17%">TOTALS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if current_user.entries.count == 0 %>
+        <tr>
+          <td class="text-center date-column"></td>
+          <td class="text-center breakfast-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success" %></td>
+          <td class="text-center lunch-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success" %></td>
+          <td class="text-center dinner-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success" %></td>
+          <td class="text-center snack-column"><%= link_to "+", @entry, class: "btn btn-lg btn-success" %></td>
+          <td class="text-center totals-column"></td>
+        </tr>
+      <% else %>
+        <% @entries.values.each do |day_entries| %>
+        <tr>
+          <td><%= day_entries[0].date.strftime("%a %b %e, %Y") %></td>
+          <td>
+            <% if breakfast(day_entries[0]) %>
+              Fat: <%= breakfast(day_entries[0])[0].fat %><br>
+              Carbs: <%= breakfast(day_entries[0])[0].carbs %><br>
+              Protein: <%= breakfast(day_entries[0])[0].protein %><br>
+            <% else %>
+              <%= link_to "+", new_user_entry_path(date: sort_by_meal(day_entries)[0].date, meal: "breakfast"), class: "btn btn-lg btn-success add-entry-btn" %>
+            <% end %>
+          </td>
+          <% if lunch(day_entries[2]) %>
+            Fat: <%= lunch(day_entries[2])[0].fat %><br>
+            Carbs: <%= lunch(day_entries[2])[0].carbs %><br>
+            Protein: <%= lunch(day_entries[2])[0].protein %><br>
+          <% else %>
+            <%= link_to "+", new_user_entry_path(date: sort_by_meal(day_entries)[2].date, meal: "lunch"), class: "btn btn-lg btn-success add-entry-btn" %>
+          <% end %>
+          <td>
+          </td>
+          <td>d</td>
+          <td>s</td>
+          <td>t</td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  </div>
+</body>
