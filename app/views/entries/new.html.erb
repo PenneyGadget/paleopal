@@ -1,6 +1,7 @@
 <%= render partial: "partials/navbar" %>
 
 <body class="new-entry">
+  <div id="form-errors" class="flashes" style="display:none;"></div>
   <div class="container entry-form">
     <%= form_for @entry do |f| %>
     <div class="row">

@@ -17,7 +17,19 @@ class NutritionService
       end
     end
     parsed_data = data.map { |ingredient| parse(ingredient) }
-    Macronutrients.collect_macronutrients(parsed_data)
+    has_error = false
+    error_ingredient = ''
+    parsed_data.each do |ingredient|
+      if !ingredient[:ingredients][0].key?(:parsed)
+        has_error = true
+        error_ingredient = ingredient[:ingredients][0][:text]
+      end
+    end
+    if has_error
+      { :result => "error", :message => "Sorry, '#{error_ingredient}' is not in our database" }
+    else
+      { :result => "success", :response => Macronutrients.collect_macronutrients(parsed_data) }
+    end
   end
 
   private

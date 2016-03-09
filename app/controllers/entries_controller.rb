@@ -40,7 +40,7 @@ class EntriesController < ApplicationController
       meal_data = { ingredients: params["entry"]["ingredients"].split(/ *, */) }
       calc_nutrients(meal_data)
       flash[:success] = "Meal updated"
-      redirect_to entry_path(@entry)
+      redirect_to entry_path(@entry) and return
     else
       unauthenticated_user_error
     end
@@ -62,8 +62,12 @@ class EntriesController < ApplicationController
       meal_data = { ingredients: params[:ingredients].split(/ *, */) }
       ns = NutritionService.new
       nutrients = ns.get_nutrition_values(meal_data)
-      summed_nutrients = Macronutrients.sum_macronutrients(nutrients)
-      render :json => { :result => "success", :nutrients => summed_nutrients }
+      if nutrients[:result] == "error"
+        render :json => { :result => "error", :message => nutrients[:message] } and return
+      else
+        summed_nutrients = Macronutrients.sum_macronutrients(nutrients[:response])
+        render :json => { :result => "success", :nutrients => summed_nutrients } and return
+      end
     else
       flash[:error] = "You don't belong here."
       redirect_to new_entry_path
@@ -86,7 +90,7 @@ class EntriesController < ApplicationController
   def calc_nutrients(meal_data)
     ns = NutritionService.new
     nutrients = ns.get_nutrition_values(meal_data)
-    summed_nutrients = Macronutrients.sum_macronutrients(nutrients)
+    summed_nutrients = Macronutrients.sum_macronutrients(nutrients[:response])
     @entry.update_attributes(summed_nutrients)
     @entry.save
   end

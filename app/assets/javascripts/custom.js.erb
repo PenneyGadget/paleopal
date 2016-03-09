@@ -11,7 +11,7 @@ $(document).ready(function() {
       url: "/entry/calculate",
       type: "POST",
       data: {ingredients: params},
-      dataType: 'json',
+      dataType: "json",
       success: function(response){
         if (response.result == "success") {
           $("#form-submit").show();
@@ -23,7 +23,11 @@ $(document).ready(function() {
           $("#entry_carbs").val(response.nutrients.carbs);
           $("#entry_protein").val(response.nutrients.protein);
         } else {
-          alert("Error " + response.message);
+          $('#form-errors').show();
+          $('#form-errors').text( "ERROR: " + response.message );
+          $('html, body').animate({
+            scrollTop: $("#form-errors").offset().top - 70
+          }, 500);
         }
       },
       error: function(xhr, ajaxOptions, error){
