@@ -193,13 +193,18 @@ body.new-entry {
   margin-top: 50px;
   border-style: groove;
   padding: 50px;
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Reenie Beanie', cursive;
   font-size: 3em;
   margin-bottom: 50px;
 }
 
 .dropdown-text {
   font-size: .5em;
+}
+
+#ingr-instructions {
+font-family: 'Quicksand', sans-serif;
+font-size: 13pt;
 }
 
 .form-text {
@@ -214,5 +219,53 @@ body.new-entry {
 // Entry page buttons
 #form-submit, #calc-values {
   font-size: .9em;
+  font-weight: bold;
+}
+
+// Meal show page and edit page
+.meal-title {
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 4em;
+  text-decoration: underline;
+}
+
+.meal-ingr {
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 2.7em;
+}
+
+.meal-nutrients, .notes-block {
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 2em;
+  border-style: ridge;
+}
+
+.nutrient-block, .meal-notes {
+  padding: 20px;
+}
+
+.meal-notes {
+  font-family: 'Reenie Beanie', cursive;
+}
+
+.meal-data, .notes {
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 2em;
+}
+
+body.meal-show {
+  padding-top: 90px;
+}
+
+.edit-btn, .delete-btn {
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 2em;
+  margin: 10px;
+}
+
+.edit-header {
+  margin-top: 60px;
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 3em;
   font-weight: bold;
 }

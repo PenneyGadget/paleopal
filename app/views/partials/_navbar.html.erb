@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <% if current_user %>
       <%= link_to image_tag(current_user.image_url), root_path, class: "user-image-nav rounded" %>
-      <%= link_to "Resources", resources_path, class: "btn btn-default navbar-btn" %>
+      <%= link_to "Resources", "#", class: "btn btn-default navbar-btn" %>
       <%= link_to "Profile", "#", class: "btn btn-default navbar-btn" %>
       <%= link_to "Dashboard", dashboard_path, class: "btn btn-default navbar-btn" %>
       <%= link_to "Logout", logout_path, method: :delete, class: "btn btn-default navbar-btn" %>

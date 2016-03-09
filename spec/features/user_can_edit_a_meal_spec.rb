@@ -15,7 +15,7 @@ RSpec.feature "Edit a meal", :type => :feature do
 
       visit dashboard_path
       click_on "View Entry"
-      click_on "Edit this Entry"
+      click_on "Edit Entry"
 
       fill_in "Ingredients", with: "2 eggs, 4oz bacon, 12oz coffee"
       fill_in "Notes", with: "Forgot to add my coffee!"

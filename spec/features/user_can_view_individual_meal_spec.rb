@@ -20,7 +20,7 @@ RSpec.feature "Entry show page", :type => :feature do
       expect(page).to have_content("Breakfast for Thu Mar 3, 2016")
       expect(page).to have_content("2 eggs, 4oz bacon, 12oz coffee")
       expect(page).to have_content("My first food diary entry!")
-      expect(page).to have_link("Edit this Entry")
+      expect(page).to have_link("Edit Entry")
       expect(page).to have_link("Delete Entry")
     end
   end

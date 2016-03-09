@@ -1,12 +1,26 @@
-<h3><%= @entry.meal %> for <%= @entry.date.strftime("%a %b %e, %Y") %></h3>
-<h3><%= @entry.ingredients %></h3>
-<h3>Fat: <%= @entry.fat %>g</h3>
-<h3>Carbs: <%= @entry.carbs %>g</h3>
-<h3>Protein: <%= @entry.protein %>g</h3>
-<h3><%= @entry.notes %></h3>
-
-<br><br>
-
-<%= link_to "Edit this Entry", edit_entry_path(@entry) %>
-<br>
-<%= link_to "Delete Entry", @entry, method: :delete %>
+<%= render partial: "/partials/navbar" %>
+<body class="meal-show">
+  <div class="container">
+    <div class="meal_data">
+      <p class="meal-title"><%= @entry.meal %> for <%= @entry.date.strftime("%a %b %e, %Y") %></p>
+      <p class="meal-ingr">Ingredients: <%= @entry.ingredients %></p><br>
+      <p class="meal-data">Total Macronutrient Intake: </p>
+      <div class="meal-nutrients">
+        <div class="nutrient-block">
+          <p>Fat: <%= @entry.fat %>g</p>
+          <p>Carbs: <%= @entry.carbs %>g</p>
+          <p>Protein: <%= @entry.protein %>g</p>
+        </div>
+      </div><br><br>
+      <p class="notes">Notes: </p>
+      <div class="notes-block">
+        <div class="meal-notes">
+          <%= @entry.notes %>
+        </div>
+      </div>
+      <br><br>
+      <%= link_to "Edit Entry", edit_entry_path(@entry), class: "btn btn-info edit-btn" %>
+      <%= link_to "Delete Entry", @entry, method: :delete, class: "btn btn-info delete-btn" %>
+    </div>
+  </div>
+</body>
