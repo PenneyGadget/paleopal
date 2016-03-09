@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   get 'auth/facebook/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :entries, only: [:new, :create, :show]
+  resources :entries
 end

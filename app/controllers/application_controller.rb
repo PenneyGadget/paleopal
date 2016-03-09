@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
                 :day_lunch,
                 :day_dinner,
                 :day_snack,
-                :get_day_totals
+                :get_day_totals,
+                :get_meal_entry_id
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
@@ -22,6 +23,10 @@ class ApplicationController < ActionController::Base
 
   def get_day_entries
     current_user.entries.select("date").group("date").order(date: :desc)
+  end
+
+  def get_meal_entry_id(day_entry, meal)
+    current_user.entries.where(date: day_entry, meal: meal).pluck("id")
   end
 
   def day_breakfast(day_entry)

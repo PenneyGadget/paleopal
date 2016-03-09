@@ -1,0 +1,12 @@
+<h3><%= @entry.meal %> for <%= @entry.date.strftime("%a %b %e, %Y") %></h3>
+<h3><%= @entry.ingredients %></h3>
+<h3>Fat: <%= @entry.fat %>g</h3>
+<h3>Carbs: <%= @entry.carbs %>g</h3>
+<h3>Protein: <%= @entry.protein %>g</h3>
+<h3><%= @entry.notes %></h3>
+
+<br><br>
+
+<%= link_to "Edit this Entry", edit_entry_path(@entry) %>
+<br>
+<%= link_to "Delete Entry", @entry, method: :delete %>

@@ -32,11 +32,3 @@ RSpec.feature "New entry user flow", :type => :feature do
     end
   end
 end
-
-
-
-# As a user
-# When I click on a "+" on my dashboard chart
-# And I am redirected to the new entry page
-# The corresponding date and meal from the box I clicked "+" in is populated on the form
-# And if I click "Create New Entry" I see today's date and no meal selected

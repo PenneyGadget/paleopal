@@ -1,4 +1,6 @@
 class EntriesController < ApplicationController
+  before_action :check_user, only: [:show, :edit]
+
   def new
     if current_user
       @entry = Entry.new(date: Date.today, meal: "Choose Meal")
@@ -24,19 +26,35 @@ class EntriesController < ApplicationController
   end
 
   def show
+    check_user
+  end
+
+  def edit
+    check_user
+  end
+
+  def update
     if current_user
       @entry = Entry.find(params[:id])
+      @entry.update_attributes(entry_params)
+      meal_data = { ingredients: params["entry"]["ingredients"].split(/ *, */) }
+      calc_nutrients(meal_data)
+      flash[:success] = "Meal updated"
+      redirect_to entry_path(@entry)
     else
       unauthenticated_user_error
     end
   end
 
-  def calc_nutrients(meal_data)
-    ns = NutritionService.new
-    nutrients = ns.get_nutrition_values(meal_data)
-    summed_nutrients = Macronutrients.sum_macronutrients(nutrients)
-    @entry.update_attributes(summed_nutrients)
-    @entry.save
+  def destroy
+    if current_user
+      @entry = Entry.find(params[:id])
+      @entry.destroy
+      flash[:warning] = "Meal deleted"
+      redirect_to dashboard_path
+    else
+      unauthenticated_user_error
+    end
   end
 
   def get_api_nutrients
@@ -63,5 +81,21 @@ class EntriesController < ApplicationController
                                   :protein,
                                   :notes,
                                   :user_id)
+  end
+
+  def calc_nutrients(meal_data)
+    ns = NutritionService.new
+    nutrients = ns.get_nutrition_values(meal_data)
+    summed_nutrients = Macronutrients.sum_macronutrients(nutrients)
+    @entry.update_attributes(summed_nutrients)
+    @entry.save
+  end
+
+  def check_user
+    if current_user
+      @entry = Entry.find(params[:id])
+    else
+      unauthenticated_user_error
+    end
   end
 end

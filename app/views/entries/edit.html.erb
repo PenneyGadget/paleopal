@@ -1,0 +1,39 @@
+<%= render partial: "partials/navbar" %>
+
+Edit your meal:
+
+<body class="new-entry">
+  <div class="container entry-form">
+    <%= form_for @entry do |f| %>
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <%= f.label :date %>
+        <%= f.date_field :date, value: @entry.date.strftime("%Y-%m-%d"), class:"form-control dropdown-text" %>
+      </div>
+      <div class="form-group col-sm-6">
+        <%= f.label :meal %>
+        <%= f.select :meal, options_for_select(["Choose Meal", "Breakfast", "Lunch", "Dinner", "Snack"], @entry.meal.capitalize), {}, { class:"form-control dropdown-text" } %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :ingredients %><br>
+      <%= f.text_area :ingredients, class:"form-control form-text", rows:"5" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :notes %>
+      <%= f.text_area :notes, class:"form-control form-text", rows:"7" %>
+    </div>
+      <%= f.hidden_field :fat %>
+      <%= f.hidden_field :carbs %>
+      <%= f.hidden_field :protein %>
+
+      <%= f.submit "UPDATE MEAL", class: "btn btn-default submit-btn", id: "form-submit" %>
+      <%= link_to "CALCULATE", "#", class: "btn btn-default submit-btn", id: "calc-values" %>
+      <p class="form-control-static pull-right">
+        Fat: <span class="fat-val"><%= @entry.fat ? @entry.fat : 0 %></span>g
+        | Carbs: <span class="carb-val"><%= @entry.carbs ? @entry.carbs : 0%></span>g
+        | Protein: <span class="protein-val"><%= @entry.protein ? @entry.protein : 0%></span>g
+      </p>
+    <% end %>
+  </div>
+</body>
