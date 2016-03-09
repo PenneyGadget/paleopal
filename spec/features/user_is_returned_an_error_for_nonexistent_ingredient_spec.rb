@@ -12,7 +12,7 @@ RSpec.feature "Ingredient error", :type => :feature do
       fill_in "Ingredients", with: "1 small apple, 1oz bacom"
       click_on "CALCULATE"
 
-      # expect(rendered).to have_content "ERROR: Sorry, '1oz bacom' is not in our database"
+      # expect(page).to have_content "ERROR: Sorry, '1oz bacom' is not in our database"
       expect(current_path).to eq(new_entry_path)
       # expect(page).to have_content "2016-03-03"
       expect(page).to have_content "Breakfast"

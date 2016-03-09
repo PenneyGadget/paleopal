@@ -117,7 +117,7 @@
 
 .how-text.rounded {
   position: absolute;
-  bottom: 350px;
+  bottom: 300px;
   font-family: 'Amatic SC', cursive;
   font-size: 2em;
   font-weight: 600;
@@ -126,28 +126,31 @@
   border-radius: 10px;
 }
 
-  .screenshot1.rounded {
+  .screenshot1 {
     position: absolute;
-    bottom: 850px;
-    right: 140px;
+    bottom: 760px;
+    right: 0px;
     background-color: rgba(219, 220, 202, .7);
     border-radius: 10px;
+    border-style: solid;
   }
 
-  .screenshot2.rounded {
+  .screenshot2 {
     position: absolute;
-    bottom: 620px;
-    right: 80px;
+    bottom: 450px;
+    right: 0px;
     background-color: rgba(219, 220, 202, .7);
     border-radius: 10px;
+    border-style: solid;
   }
 
-  .screenshot3.rounded {
+  .screenshot3 {
     position: absolute;
-    bottom: 390px;
-    right: 20px;
+    bottom: 270px;
+    right: 0px;
     background-color: rgba(219, 220, 202, .7);
     border-radius: 10px;
+    border-style: solid;
   }
 
 // User dashboard

@@ -12,7 +12,7 @@ RSpec.feature "User dashboard", :type => :feature do
       fill_in "Ingredients", with: "2 eggs, 4oz bacon"
       fill_in "Notes", with: "My first food diary entry!"
       click_on "SAVE"
-      save_and_open_page
+
       click_on "Create New Entry"
       fill_in "Date", with: "03/03/2016"
       select "Lunch", from: "Meal"
