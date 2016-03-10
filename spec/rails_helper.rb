@@ -47,7 +47,7 @@ RSpec.configure do |config|
 
   OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
     provider: 'facebook',
-    uid: '10208597696766055',
+    uid: "10208597696766055",
     info: {
       name: "Penney Gadget",
       email: "penney@email.com",
@@ -55,7 +55,6 @@ RSpec.configure do |config|
     },
     credentials: {token: ENV["TESTING_TOKEN"]}
     })
-
 end
 
 Shoulda::Matchers.configure do |config|
@@ -63,4 +62,15 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+
+def create_user
+  User.create!(provider: 'facebook',
+               uid: "10208597696766055",
+               name: "Penney Gadget",
+               email: "penney@email.com",
+               image_url: "http://graph.facebook.com/10208597696766055/picture"
+               )
 end
