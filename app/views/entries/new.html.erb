@@ -11,7 +11,7 @@
       </div>
       <div class="form-group col-sm-6">
         <%= f.label :meal %>:
-        <%= f.select :meal, options_for_select(["Choose Meal", "Breakfast", "Lunch", "Dinner", "Snack"], @entry.meal.capitalize), {}, { class:"form-control dropdown-text" } %>
+        <%= f.select :meal, options_for_select(["Breakfast", "Lunch", "Dinner", "Snack"], @entry.meal), {}, { class:"form-control dropdown-text" } %>
       </div>
     </div>
     <div class="form-group">

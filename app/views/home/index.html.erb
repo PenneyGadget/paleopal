@@ -11,12 +11,17 @@
   </div><!-- End of testimonial section -->
 
   <div class="how-it-works grayscale">
-    <%= image_tag "antique-table.jpg", class: "table-pic" %>
     <div class="container">
       <p class="how-header">How Does it Work?</p>
-      <%= render partial: "partials/how_it_works" %>
-      <%= render partial: "partials/screenshots" %>
-      <p class="resources-link">Check out all of our helpful Paleo resources <%= link_to "here", resources_path %></p><br><br>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= render partial: "partials/how_it_works" %>
+        </div>
+        <div class="col-sm-6">
+          <%= render partial: "partials/screenshots" %>
+        </div>
+      </div>
     </div>
   </div><!-- End of how-it-works section -->
+  <p class="resources-link">Check out all of our helpful Paleo resources <%= link_to "here", resources_path %></p><br><br>
 </div>

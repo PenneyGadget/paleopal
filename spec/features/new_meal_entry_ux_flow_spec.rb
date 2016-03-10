@@ -9,7 +9,7 @@ RSpec.feature "New entry user flow", :type => :feature do
       click_on "Create New Entry"
 
       expect(page).to have_field("Date", with: (Date.today.strftime("%Y-%m-%d")))
-      expect(page).to have_field("Meal", with: "Choose Meal")
+      expect(page).to have_field("Meal")
       expect(page).to have_field("Ingredients", with: "")
       expect(page).to have_field("Notes", with: "")
 

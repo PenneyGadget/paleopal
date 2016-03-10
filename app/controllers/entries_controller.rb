@@ -3,7 +3,7 @@ class EntriesController < ApplicationController
 
   def new
     if current_user
-      @entry = Entry.new(date: Date.today, meal: "Choose Meal")
+      @entry = Entry.new(date: Date.today)
       @entry.meal = params["meal"] if params["meal"]
       @entry.date = params["date"] if params["date"]
     else

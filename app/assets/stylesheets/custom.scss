@@ -4,6 +4,14 @@
   position: relative;
 }
 
+.btn-success {
+  background-color: #6F9000;
+  border-color: #6F9000;
+  &:hover {
+    background-color: darken(#6F9000, 5%);
+  }
+}
+
 // Flashes
 .flashes {
   font-family: "Amatic SC", cursive;
@@ -105,19 +113,23 @@
 }
 
 // Landing page lower section
+.how-it-works {
+  background-image: url("antique-table.jpg");
+
+  img {
+    max-width: 100%;
+  }
+}
+
 .how-header {
-  position: absolute;
-  bottom: 1075px;
-  left: 160px;
   font-family: 'Dawning of a New Day', cursive;
   color: white;
   font-weight: 575;
   font-size: 8em;
+  text-align: center;
 }
 
 .how-text.rounded {
-  position: absolute;
-  bottom: 300px;
   font-family: 'Amatic SC', cursive;
   font-size: 2em;
   font-weight: 600;
@@ -126,37 +138,20 @@
   border-radius: 10px;
 }
 
-  .screenshot1 {
-    position: absolute;
-    bottom: 760px;
-    right: 0px;
+  .screenshot {
     background-color: rgba(219, 220, 202, .7);
-    border-radius: 10px;
     border-style: solid;
-  }
-
-  .screenshot2 {
-    position: absolute;
-    bottom: 450px;
-    right: 0px;
-    background-color: rgba(219, 220, 202, .7);
-    border-radius: 10px;
-    border-style: solid;
-  }
-
-  .screenshot3 {
-    position: absolute;
-    bottom: 270px;
-    right: 0px;
-    background-color: rgba(219, 220, 202, .7);
-    border-radius: 10px;
-    border-style: solid;
+    margin-bottom: 20px;
   }
 
 // User dashboard
 body.user-dashboard {
   padding-top: 70px;
   margin-bottom: 50px;
+}
+
+.entries-table td {
+  vertical-align: middle !important;
 }
 
 .user-image-nav {
@@ -175,6 +170,13 @@ body.user-dashboard {
   font-weight: bold;
   font-size: 3em;
   margin-top: 70px;
+}
+
+.view-btn {
+  font-size: .7em;
+  font-weight: bold;
+  margin: .5em 0;
+  background: #E5E5E5;
 }
 
 .entries-table {
@@ -212,8 +214,10 @@ font-size: 13pt;
 }
 
 .add-entry-btn {
-  margin-top: 30px;
   font-size: 1.2em;
+  width: 2.2em;
+  line-height: 2.2em;
+  padding: 0;
 }
 
 // Entry page buttons
