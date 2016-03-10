@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
     expect(user.email).to eq("penney@email.com")
     expect(user.oauth_token).to_not eq(nil)
   end
-
+  # if no entries, user.entries should be an []
   it { should have_many(:entries) }
-  
+
 end

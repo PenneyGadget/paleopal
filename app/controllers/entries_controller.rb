@@ -37,8 +37,7 @@ class EntriesController < ApplicationController
     if current_user
       @entry = Entry.find(params[:id])
       @entry.update_attributes(entry_params)
-      meal_data = { ingredients: params["entry"]["ingredients"].split(/ *, */) }
-      calc_nutrients(meal_data)
+      get_updated_nutrients(params)
       flash[:success] = "Meal updated"
       redirect_to entry_path(@entry)
     else
@@ -69,6 +68,11 @@ class EntriesController < ApplicationController
         render :json => { :result => "success", :nutrients => summed_nutrients }
       end
     end
+  end
+
+  def get_updated_nutrients(params)
+    meal_data = { ingredients: params["entry"]["ingredients"].split(/ *, */) }
+    calc_nutrients(meal_data)
   end
 
   private

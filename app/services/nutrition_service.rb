@@ -10,13 +10,20 @@ class NutritionService
   end
 
   def get_nutrition_values(meal_data)
-    data = meal_data[:ingredients].map do |ingredient|
+    parsed_data = get_api_data(meal_data).map { |ingredient| parse(ingredient) }
+    check_ingredient(parsed_data)
+  end
+
+  def get_api_data(meal_data)
+    meal_data[:ingredients].map do |ingredient|
       connection.get do |request|
         request.url("/api/nutrition-data")
         request.params["ingr"] = ingredient
       end
     end
-    parsed_data = data.map { |ingredient| parse(ingredient) }
+  end
+
+  def check_ingredient(parsed_data)
     has_error = false
     error_ingredient = ''
     parsed_data.each do |ingredient|

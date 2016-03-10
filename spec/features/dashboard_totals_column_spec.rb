@@ -20,13 +20,13 @@ RSpec.feature "User dashboard", :type => :feature do
       fill_in "Notes", with: "I'm so healthy!"
       click_on "SAVE"
 
-      expect(page).to have_css("td.breakfast-column", text: "Fat: 54g")
-      expect(page).to have_css("td.breakfast-column", text: "Carbs: 1g")
-      expect(page).to have_css("td.breakfast-column", text: "Protein: 26g")
+      expect(page).to have_css("td.meal-column", text: "Fat: 54g")
+      expect(page).to have_css("td.meal-column", text: "Carbs: 1g")
+      expect(page).to have_css("td.meal-column", text: "Protein: 26g")
 
-      expect(page).to have_css("td.lunch-column", text: "Fat: 17g")
-      expect(page).to have_css("td.lunch-column", text: "Carbs: 2g")
-      expect(page).to have_css("td.lunch-column", text: "Protein: 22g")
+      expect(page).to have_css("td.meal-column", text: "Fat: 17g")
+      expect(page).to have_css("td.meal-column", text: "Carbs: 2g")
+      expect(page).to have_css("td.meal-column", text: "Protein: 22g")
 
       expect(page).to have_css("td.totals-column", text: "Fat: 71g")
       expect(page).to have_css("td.totals-column", text: "Carbs: 3g")

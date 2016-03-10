@@ -1,0 +1,40 @@
+<% if current_user.entries.count > 0 %>
+  <table class="table table-bordered table-responsive table-hover entries-table">
+    <thead>
+      <tr>
+        <th class="text-center" width="15%">DATE</th>
+        <th class="text-center" width="17%">BREAKFAST</th>
+        <th class="text-center" width="17%">LUNCH</th>
+        <th class="text-center" width="17%">DINNER</th>
+        <th class="text-center" width="17%">SNACKS</th>
+        <th class="text-center" width="17%">TOTALS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <% @presenter.get_day_entries.each do |day_entry| %>
+      <td class="text-center date-column"><%= day_entry.date.strftime("%a %b %e, %Y") %></td>
+        <% @presenter.meals.each do |meal| %>
+        <% if current_user.entries.where(date: day_entry.date).exists?(meal: meal) %>
+          <td class="text-center meal-column">Fat: <%= @presenter.meal_data(day_entry, meal)[:fat] %>g<br>
+                                                   Carbs: <%= @presenter.meal_data(day_entry, meal)[:carbs] %>g<br>
+                                                   Protein: <%= @presenter.meal_data(day_entry, meal)[:protein] %>g<br>
+          <%= link_to "View Entry", entry_path(@presenter.get_meal_entry_id(day_entry.date, meal)), class: "btn btn-default view-btn" %></td>
+        <% else %>
+          <td class="text-center meal-column"><%= link_to "+", new_entry_path(date: day_entry.date, meal: meal), class: "btn btn-lg btn-success add-entry-btn" %></td>
+        <% end %>
+      <% end %>
+      <td class="text-center totals-column">Fat: <%= @presenter.get_day_totals(day_entry)[:fat] %>g<br>
+        Carbs: <%= @presenter.get_day_totals(day_entry)[:carbs] %>g<br>
+        Protein: <%= @presenter.get_day_totals(day_entry)[:protein] %>g</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="jumbotron" style="margin-top: 60px;">
+    <p align="center">Welcome to PaleoPal!</p>
+    <p align="center">Congratulations on starting on the path to real food awareness and health... Let the healing journey begin!</p>
+    <p align="center"><strong>You don't have any meals entered. Click "Create a New Entry" above to get started</strong></p>
+  </div>
+<% end %>

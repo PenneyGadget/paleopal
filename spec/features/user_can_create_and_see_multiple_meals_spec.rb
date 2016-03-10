@@ -23,9 +23,9 @@ RSpec.feature "New entries page", :type => :feature do
       visit dashboard_path
 
       expect(page).to have_content("Thu Mar 3, 2016")
-      expect(page).to have_css("td.snack-column", text: "Fat: 28g")
-      expect(page).to have_css("td.snack-column", text: "Carbs: 12g")
-      expect(page).to have_css("td.snack-column", text: "Protein: 11g")
+      expect(page).to have_text("Fat: 28g")
+      expect(page).to have_text("Carbs: 12g")
+      expect(page).to have_text("Protein: 11g")
 
       expect(page).to have_content("Thu Mar 3, 2016")
       expect(page).to have_css("td.totals-column", text: "Fat: 28g")
@@ -33,9 +33,9 @@ RSpec.feature "New entries page", :type => :feature do
       expect(page).to have_css("td.totals-column", text: "Protein: 11g")
 
       expect(page).to have_content("Wed Mar 2, 2016")
-      expect(page).to have_css("td.breakfast-column", text: "Fat: 9g")
-      expect(page).to have_css("td.breakfast-column", text: "Carbs: 0g")
-      expect(page).to have_css("td.breakfast-column", text: "Protein: 12g")
+      expect(page).to have_text("Fat: 9g")
+      expect(page).to have_text("Carbs: 0g")
+      expect(page).to have_text("Protein: 12g")
 
       expect(page).to have_content("Wed Mar 2, 2016")
       expect(page).to have_css("td.totals-column", text: "Fat: 9g")
