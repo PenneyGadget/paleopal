@@ -21,8 +21,6 @@ The application is [hosted live on Heroku](http://paleopal.herokuapp.com/).
 
 [![Screenshot](/app/assets/images/paleopal-screenshot.png)](http://g.recordit.co/kpokuqv43i.gif)
 
-[Click Here to See Video GIF of app](http://g.recordit.co/kpokuqv43i.gif)
-
 ### Dependencies
 
 To run this application locally, you would need to obtain the Nutrition Data API from Edamam:
